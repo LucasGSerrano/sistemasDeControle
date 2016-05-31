@@ -1,5 +1,5 @@
 clear;
-% load('data');
+ load('data');
 %% 
 
 kc = 0.2371;
@@ -33,12 +33,14 @@ in=in(2:end,:);
 
 %% 
 
-Gma = tf(Km*Kenc,[taum 1 0]);
+% Gma = tf(Km*Kenc,[taum 1 0]);
+
+Gma = tf(Km*Kenc,[taum 1]);
 
 Gmf = feedback(Gma,1);
 
 step(Gmf);
 
-Ts = 0.8*3.59;
+Ts = 0.8*0.179;
 
 % sisotool(Gma)
