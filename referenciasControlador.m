@@ -35,7 +35,7 @@ in=in(2:end,:);
 
 % Gma = tf(Km*Kenc,[taum 1 0]);
 
-Gma = tf(Km*Kenc,[taum 1]);
+Gma = tf(Km*Ktac,[taum 1]);
 
 Gmf = feedback(Gma,1);
 
