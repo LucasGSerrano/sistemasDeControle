@@ -8,13 +8,16 @@ axis equal;
 
 [xc, yc, zc] = cylinder([0.1 0.0]);
 [x, y, z ] = cylinder([0.2 0.2]);
+[xw,yw,zw] = cylinder([-0.2 -0.2]);
 
-h(1) = surface (xc , zc ,-yc, 'FaceColor', 'red' );
-h(2) = surface (z, y, 0.5*x, 'FaceColor', 'blue' );
-h(3) = surface (-z , y, 0.5*x, 'FaceColor', 'yellow');
-h(4) = surface (x, -1.5*z, 0.5*y, 'FaceColor', 'red');
-h(5) = surface (xc, (1.5*yc)-1.3, z, 'FaceColor', 'red');
-
+[a,b,c] = sphere (2^4-1);
+a = a(8:end,:);
+b = b(8:end,:);
+c = c(8:end,:);
+h(1) = surface(a,b,c + 1, 'FaceColor', 'blue');
+h(2) = surface(5*x, 5*y, z);
+h(3) = surface(0.1*z - 1.1,1.5*x,1.5*y, 'FaceColor', 'black');
+h(4) = surface(0.1*z + 1,1.5*x,1.5*y, 'FaceColor', 'black');
 
 % Create group object and parent surfaces
 t = hgtransform('Parent',ax);
